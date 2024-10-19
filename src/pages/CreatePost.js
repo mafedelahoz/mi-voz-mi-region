@@ -9,6 +9,8 @@ function CreatePost() {
   const [author, setAuthor] = useState('');
   const [email, setEmail] = useState('');
   const [image, setImage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState('');  // Nuevo estado para el mensaje de éxito
+  const [errorMessage, setErrorMessage] = useState('');      // Nuevo estado para el mensaje de error
 
   // Opciones para las regiones de Colombia
   const regions = [
@@ -21,7 +23,6 @@ function CreatePost() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
 
     const formData = new URLSearchParams();
     formData.append('title', title);
@@ -37,16 +38,23 @@ function CreatePost() {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       });
       console.log(response.data);
-      // Manejar el éxito de la publicación (puedes mostrar un mensaje o redirigir a otra página)
+      setSuccessMessage('La publicación se ha creado con éxito.');  // Mensaje de éxito
+      setErrorMessage('');  // Limpiar cualquier mensaje de error
     } catch (error) {
       console.error('Error al crear la publicación', error);
-      // Manejar errores (puedes mostrar un mensaje de error)
+      setErrorMessage('Hubo un error al crear la publicación.');  // Mensaje de error
+      setSuccessMessage('');  // Limpiar cualquier mensaje de éxito
     }
   };
 
   return (
     <div className="col-md-8 offset-md-2">
       <h2>Crear Publicación</h2>
+
+      {/* Mostrar mensaje de éxito o error */}
+      {successMessage && <div className="alert alert-success">{successMessage}</div>}
+      {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label>Título:</label>
@@ -103,6 +111,7 @@ function CreatePost() {
             required
           ></textarea>
         </div>
+
         <div className="mb-3">
           <label>Autor:</label>
           <input
@@ -113,6 +122,7 @@ function CreatePost() {
             required
           />
         </div>
+
         <div className="mb-3">
           <label>Correo Electrónico:</label>
           <input
@@ -123,14 +133,16 @@ function CreatePost() {
             required
           />
         </div>
+
         <div className="mb-3">
           <label>Imagen:</label>
           <input type="file" 
-          className="form-control" 
-          name="image"
-          onChange={(e) => setImage(e.target.files[0])}  // Capturar el archivo seleccionado
-         />
+            className="form-control" 
+            name="image"
+            onChange={(e) => setImage(e.target.files[0])}  // Capturar el archivo seleccionado
+          />
         </div>
+
         <button type="submit" className="btn btn-primary">Publicar</button>
       </form>
     </div>

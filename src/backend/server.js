@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const postsRoute = require('./routes/posts'); // Ruta a tus rutas de posts
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' }); // Configura multer para almacenar archivos en la carpeta 'uploads'
 
@@ -13,9 +12,8 @@ app.use(cors());
 app.use(bodyParser.json()); // Para manejar JSON
 app.use(bodyParser.urlencoded({ extended: true })); // Para manejar formularios URL-encoded
 app.use(upload.single('image')); // Agrega el middleware de multer aquí si es necesario
-
-// Ruta para manejar /posts
-app.use('/posts', require(postsRoute));
+const postsRoute = require('./routes/posts');  // Importa la ruta correctamente
+app.use('/posts', postsRoute);
 
 // Ruta para la raíz del servidor
 app.get('/', (req, res) => {
