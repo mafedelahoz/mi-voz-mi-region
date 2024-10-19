@@ -11,20 +11,14 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
+          <li className="nav-item">
+              <Link className="nav-link" to="/create-post">Publicar</Link>
+            </li>
             <li className="nav-item">
               <Link className="nav-link" to="/publications">Publicaciones</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/crisis-info">Información de Crisis</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/create-post">Publicar</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">Iniciar Sesión</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/register">Registro</Link>
             </li>
           </ul>
         </div>

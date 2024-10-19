@@ -6,27 +6,41 @@ function CreatePost() {
   const [region, setRegion] = useState('');
   const [category, setCategory] = useState('');
   const [content, setContent] = useState('');
+  const [author, setAuthor] = useState('');
+  const [email, setEmail] = useState('');
   const [image, setImage] = useState(null);
+
+  // Opciones para las regiones de Colombia
+  const regions = [
+    'Amazonas', 'Antioquia', 'Arauca', 'Atlántico', 'Bolívar', 'Boyacá', 'Caldas',
+    'Caquetá', 'Casanare', 'Cauca', 'Cesar', 'Chocó', 'Córdoba', 'Cundinamarca',
+    'Guainía', 'Guaviare', 'Huila', 'La Guajira', 'Magdalena', 'Meta', 'Nariño',
+    'Norte de Santander', 'Putumayo', 'Quindío', 'Risaralda', 'San Andrés y Providencia',
+    'Santander', 'Sucre', 'Tolima', 'Valle del Cauca', 'Vaupés', 'Vichada'
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Crear un objeto FormData para manejar la imagen
-    const formData = new FormData();
+
+
+    const formData = new URLSearchParams();
     formData.append('title', title);
     formData.append('region', region);
     formData.append('category', category);
     formData.append('content', content);
-    if (image) formData.append('image', image);
+    formData.append('author', author);
+    formData.append('email', email);
+    formData.append('image', image);
 
     try {
-      const response = await axios.post('/api/posts', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+      const response = await axios.post('http://localhost:5000/posts/create-post', formData.toString(), {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       });
       console.log(response.data);
-      // Manejar el éxito de la publicación
+      // Manejar el éxito de la publicación (puedes mostrar un mensaje o redirigir a otra página)
     } catch (error) {
       console.error('Error al crear la publicación', error);
-      // Manejar errores
+      // Manejar errores (puedes mostrar un mensaje de error)
     }
   };
 
@@ -36,15 +50,42 @@ function CreatePost() {
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label>Título:</label>
-          <input type="text" className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} required />
+          <input
+            type="text"
+            className="form-control"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
         </div>
+
+        {/* Selector para la Región */}
         <div className="mb-3">
           <label>Región:</label>
-          <input type="text" className="form-control" value={region} onChange={(e) => setRegion(e.target.value)} required />
+          <select
+            className="form-select"
+            value={region}
+            onChange={(e) => setRegion(e.target.value)}
+            required
+          >
+            <option value="">Selecciona una región</option>
+            {regions.map((regionOption) => (
+              <option key={regionOption} value={regionOption}>
+                {regionOption}
+              </option>
+            ))}
+          </select>
         </div>
+
+        {/* Selector para la Categoría */}
         <div className="mb-3">
           <label>Categoría:</label>
-          <select className="form-select" value={category} onChange={(e) => setCategory(e.target.value)} required>
+          <select
+            className="form-select"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            required
+          >
             <option value="">Selecciona una categoría</option>
             <option value="social">Social</option>
             <option value="ambiental">Ambiental</option>
@@ -52,13 +93,43 @@ function CreatePost() {
             <option value="otras">Otras</option>
           </select>
         </div>
+
         <div className="mb-3">
           <label>Contenido:</label>
-          <textarea className="form-control" value={content} onChange={(e) => setContent(e.target.value)} required></textarea>
+          <textarea
+            className="form-control"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            required
+          ></textarea>
         </div>
         <div className="mb-3">
-          <label>Imagen (opcional):</label>
-          <input type="file" className="form-control" onChange={(e) => setImage(e.target.files[0])} />
+          <label>Autor:</label>
+          <input
+            type="text"
+            className="form-control"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label>Correo Electrónico:</label>
+          <input
+            type="email"
+            className="form-control"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label>Imagen:</label>
+          <input type="file" 
+          className="form-control" 
+          name="image"
+          onChange={(e) => setImage(e.target.files[0])}  // Capturar el archivo seleccionado
+         />
         </div>
         <button type="submit" className="btn btn-primary">Publicar</button>
       </form>
