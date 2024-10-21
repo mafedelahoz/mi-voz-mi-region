@@ -3,6 +3,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const dotenv = require('dotenv');
+
+// Cargar variables de entorno desde .env
+dotenv.config();
+
+const uri = process.env.MONGODB_URI;
+
 const upload = multer({ dest: 'uploads/' }); // Configura multer para almacenar archivos en la carpeta 'uploads'
 
 const app = express();
@@ -20,8 +27,8 @@ app.get('/', (req, res) => {
   res.send('Bienvenido a la API de Mi Voz Mi Región');
 });
 
-// Conexión con MongoDB
-mongoose.connect('mongodb://localhost/mi_voz_mi_region', {
+// Conexión con MongoDB usando variable de entorno
+mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
