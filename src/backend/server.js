@@ -15,7 +15,11 @@ const upload = multer({ dest: 'uploads/' }); // Configura multer para almacenar 
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: '*', // Permite todas las fuentes
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',
+  allowedHeaders: 'Content-Type, Authorization'
+}));
 app.use(bodyParser.json()); // Para manejar JSON
 app.use(bodyParser.urlencoded({ extended: true })); // Para manejar formularios URL-encoded
 app.use(upload.single('image')); // Agrega el middleware de multer aquí si es necesario
