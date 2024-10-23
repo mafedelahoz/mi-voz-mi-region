@@ -69,14 +69,14 @@ function CreatePost() {
 
         {/* Selector para la Región */}
         <div className="mb-3">
-          <label>Región:</label>
+          <label>Departamento:</label>
           <select
             className="form-select"
             value={region}
             onChange={(e) => setRegion(e.target.value)}
             required
           >
-            <option value="">Selecciona una región</option>
+            <option value="">Selecciona un departamento</option>
             {regions.map((regionOption) => (
               <option key={regionOption} value={regionOption}>
                 {regionOption}
