@@ -18,7 +18,8 @@ function Publications() {
   const categories = ['social', 'ambiental', 'economica', 'otras'];
 
   useEffect(() => {
-    fetch('http://localhost:5000/posts/publications')
+    // Cambia la URL aquí para que sea relativa
+    fetch('/api/posts') // Cambiado de 'http://localhost:5000/posts/publications' a '/api/posts'
       .then(response => response.json())
       .then(data => {
         setPosts(data);
@@ -94,7 +95,7 @@ function Publications() {
               <div className="card h-100">
                 {post.image && (
                   <img 
-                    src={`http://localhost:5000/uploads/${post.image}`} 
+                    src={`/uploads/${post.image}`} // Cambiado de 'http://localhost:5000/uploads/' a '/uploads/'
                     className="card-img-top" 
                     alt={post.title} 
                   />
