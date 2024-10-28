@@ -10,7 +10,7 @@ function Home() {
     <div className="home-container">
       {/* Sección del encabezado con el logo */}
       <header className="text-center mb-5">
-        <img src={logo} alt="Logo de Mi Voz, Mi Región" className="logo" style={{ width: '500px', marginBottom: '20px' }} />
+        <img src={logo} alt="Logo de Mi Voz, Mi Región" className="logo" style={{ width: '500px', maxWidth: '100%' ,marginBottom: '20px' }} />
         <h1>Bienvenido a Mi Voz, Mi Región</h1>
         <p>Escucha y comparte las voces de las minorías en Colombia.</p>
         <Link to="/publications" className="btn btn-primary btn-lg mt-3">Explorar Publicaciones</Link>

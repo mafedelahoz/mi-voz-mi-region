@@ -4,12 +4,12 @@ import Home from './pages/Home';
 import Publications from './pages/Publications';
 import CrisisInfo from './pages/CrisisInfo';
 import CreatePost from './pages/CreatePost';
-import Navbar from './components/Navbar';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <NavBar />
       <div className="container mt-4">
         <Routes>
           <Route path="/" element={<Home />} />
