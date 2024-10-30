@@ -1,0 +1,51 @@
+export const departamentosColombia = [
+    { value: 'amazonas', label: 'Amazonas' },
+    { value: 'antioquia', label: 'Antioquia' },
+    { value: 'arauca', label: 'Arauca' },
+    { value: 'atlantico', label: 'Atlántico' },
+    { value: 'bolivar', label: 'Bolívar' },
+    { value: 'boyaca', label: 'Boyacá' },
+    { value: 'caldas', label: 'Caldas' },
+    { value: 'caqueta', label: 'Caquetá' },
+    { value: 'casanare', label: 'Casanare' },
+    { value: 'cauca', label: 'Cauca' },
+    { value: 'cesar', label: 'Cesar' },
+    { value: 'choco', label: 'Chocó' },
+    { value: 'cordoba', label: 'Córdoba' },
+    { value: 'cundinamarca', label: 'Cundinamarca' },
+    { value: 'guainia', label: 'Guainía' },
+    { value: 'guaviare', label: 'Guaviare' },
+    { value: 'huila', label: 'Huila' },
+    { value: 'la_guajira', label: 'La Guajira' },
+    { value: 'magdalena', label: 'Magdalena' },
+    { value: 'meta', label: 'Meta' },
+    { value: 'narino', label: 'Nariño' },
+    { value: 'norte_de_santander', label: 'Norte de Santander' },
+    { value: 'putumayo', label: 'Putumayo' },
+    { value: 'quindio', label: 'Quindío' },
+    { value: 'risaralda', label: 'Risaralda' },
+    { value: 'san_andres', label: 'San Andrés y Providencia' },
+    { value: 'santander', label: 'Santander' },
+    { value: 'sucre', label: 'Sucre' },
+    { value: 'tolima', label: 'Tolima' },
+    { value: 'valle_del_cauca', label: 'Valle del Cauca' },
+    { value: 'vaupes', label: 'Vaupés' },
+    { value: 'vichada', label: 'Vichada' },
+    { value: 'bogota', label: 'Bogotá D.C.' }
+  ];
+
+  export   const categorias = [
+    { value: 'social', label: 'Social' },
+    { value: 'ambiental', label: 'Ambiental' },
+    { value: 'economica', label: 'Ecónomica' },
+    { value: 'otra', label: 'Otra' },
+  ]
+
+  export const  gruposSociales = [
+    { value: 'victimas_del_conflicto', label: 'Victimas del conflicto' },
+    { value: 'grupos_etnicos', label: 'Grupos étnicos' },
+    { value: 'grupos_indigenas', label: 'Grupos indígenas' },
+    { value: 'grupos_afro', label: 'Grupos Afro' },
+    { value: 'grupos_lgbti', label: 'Grupos LGBTI' },
+    { value: 'ninguno', label: 'Ninguno' },
+  ]
