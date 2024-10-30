@@ -115,7 +115,7 @@ function PublicacionCard({ publicacion }: { publicacion: Publicacion }) {
         <p className="text-sm text-muted-foreground">{publicacion.departamento}</p>
       </CardHeader>
       <Image
-        src={publicacion.imagen}
+        src={"/default.jpg"}
         alt={`Imagen para ${publicacion.titulo}`}
         width={300}
         height={200}
@@ -140,7 +140,7 @@ function PublicacionCard({ publicacion }: { publicacion: Publicacion }) {
             </DialogHeader>
             <div className="mt-4">
               <Image
-                src={publicacion.imagen}
+                src={"/default.jpg"}
                 alt={`Imagen para ${publicacion.titulo}`}
                 width={300}
                 height={200}
