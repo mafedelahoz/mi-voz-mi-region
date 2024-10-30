@@ -19,7 +19,22 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Mi Voz, Mi Región",
   description: "Creando un movimiento de conexión, empoderamiento y acción",
+  openGraph: {
+    title: "Mi Voz, Mi Región",
+    description: "Creando un movimiento de conexión, empoderamiento y acción",
+    url: "https://mi-voz-mi-region.vercel.app",
+    siteName: "Mi Horario Uniandes",
+    images: [
+      {
+        url: "https://img.freepik.com/psd-gratis/ilustracion-bandera-pais-colombia_23-2151870667.jpg",
+        alt: "Mi Voz, Mi Región",
+      },
+    ],
+    locale: "es_CO",
+    type: 'website',
+  },
 };
+
 
 export default function RootLayout({
   children,
