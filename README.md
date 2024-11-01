@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mi Voz, Mi Región
 
-## Getting Started -
+**Mi Voz, Mi Región** es una plataforma digital dedicada a amplificar las voces de comunidades marginadas en Colombia. Esta iniciativa busca crear un espacio seguro donde las personas puedan compartir sus experiencias y opiniones, promoviendo así una mayor inclusión y reconocimiento de la diversidad cultural y social en el país.
 
-First, run the development server:
+## Descripción del Proyecto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Regiones de Colombia**: La plataforma conecta a todas las regiones del país, asegurando que la riqueza cultural y la pluralidad de voces de cada rincón de Colombia esté representada.
+- **Departamentos Conectados**: Cada departamento tiene un espacio de representación en esta plataforma, facilitando la conexión entre comunidades y proporcionando visibilidad a temas regionales específicos.
+- **Compromiso con Minorías**: Estamos comprometidos con el apoyo a grupos minoritarios, ofreciendo un espacio inclusivo y respetuoso para la expresión de sus perspectivas y realidades.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Objetivo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+El objetivo principal de **Mi Voz, Mi Región** es empoderar a las comunidades marginadas al proporcionarles una plataforma para:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Compartir sus historias y experiencias de manera segura.
+- Visibilizar problemáticas y logros que afectan a sus comunidades.
+- Facilitar el acceso a un espacio digital inclusivo que valore la diversidad cultural y social de Colombia.
 
-## Learn More
+## ¿Por Qué Mi Voz, Mi Región?
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+La plataforma **Mi Voz, Mi Región** es un recurso valioso en un contexto en el que muchas comunidades en Colombia enfrentan desafíos significativos para ser escuchadas y representadas. Al proporcionar un canal seguro y accesible para la expresión, esta plataforma apoya los esfuerzos por construir un país más justo y equitativo.
