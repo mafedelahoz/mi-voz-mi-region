@@ -20,6 +20,19 @@ export default function Publicar() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Convertir imagen a Base64 si existe
+    let imagenBase64 = null;
+    if (imagen) {
+      const reader = new FileReader();
+      imagenBase64 = await new Promise((resolve, reject) => {
+        reader.onloadend = () => resolve(reader.result?.toString().split(',')[1]); // Elimina el prefijo "data:image/png;base64,"
+        reader.onerror = reject;
+        reader.readAsDataURL(imagen);
+      });
+    }
+
+
     // Aquí iría la lógica para enviar la publicación
     const res = await fetch('/api/publicaciones', {
       method: 'POST',
@@ -29,7 +42,7 @@ export default function Publicar() {
         departamento,
         autor,
         correo,
-        imagen: imagen?.name,
+        imagen: imagenBase64,
         categoria,
         grupoSocial
       }),

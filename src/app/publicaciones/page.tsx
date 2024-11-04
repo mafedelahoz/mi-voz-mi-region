@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {
@@ -108,18 +107,25 @@ export default function Publicaciones() {
 }
 
 function PublicacionCard({ publicacion }: { publicacion: Publicacion }) {
+  
+  const imageUrl = publicacion.imagen
+    ? `data:image/jpeg;base64,${publicacion.imagen}`
+    : "/default.jpg";
+
   return (
     <Card className="flex flex-col h-full">
       <CardHeader>
         <CardTitle>{publicacion.titulo}</CardTitle>
         <p className="text-sm text-muted-foreground">{publicacion.departamento}</p>
       </CardHeader>
-      <Image
-        src={"/default.jpg"}
+      <img 
+        src={imageUrl}
         alt={`Imagen para ${publicacion.titulo}`}
-        width={300}
-        height={200}
         className="object-cover w-full h-48"
+        onError={(e) => {
+          e.currentTarget.src = "/default.jpg"; // Reemplaza con imagen default si falla
+          console.log(publicacion.imagen && !publicacion.imagen.endsWith("jpg"));
+        }}
       />
       <CardContent className="flex-grow">
         <p className="text-sm text-gray-600 mb-2">
@@ -139,12 +145,14 @@ function PublicacionCard({ publicacion }: { publicacion: Publicacion }) {
               <DialogTitle>{publicacion.titulo}</DialogTitle>
             </DialogHeader>
             <div className="mt-4">
-              <Image
-                src={"/default.jpg"}
+              <img
+                src={imageUrl}
                 alt={`Imagen para ${publicacion.titulo}`}
-                width={300}
-                height={200}
                 className="object-cover w-full h-48 mb-4 rounded-md"
+                onError={(e) => {
+                  e.currentTarget.src = "/default.jpg";
+                  console.log(publicacion.imagen && !publicacion.imagen.endsWith("jpg"));
+                }}
               />
               <p className="text-sm text-gray-600 mb-4">{publicacion.contenido}</p>
               <div className="text-sm">
